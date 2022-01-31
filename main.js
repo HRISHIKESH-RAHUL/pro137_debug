@@ -36,7 +36,14 @@ function gotResult(error,results){
 
 function speak(){
     synth = window.speechSynthesis ;
-   speak_data = "Object Detcted " ;
+   speak_data = "Object Detected " ;
+    utterThis = new SpeechSynthesisUtterance(speak_data) ;
+    synth.speak(utterThis);
+}
+
+function speaks(){
+    synth = window.speechSynthesis ;
+   speak_data = "Object Not Detected " ;
     utterThis = new SpeechSynthesisUtterance(speak_data) ;
     synth.speak(utterThis);
 }
@@ -46,14 +53,15 @@ function draw(){
     if(Status !=""){
         objectDetector.detect(video , gotResult);
         for(i=0; i<objects.length ; i++){
-            if(results=input){
+            if(results = input){
             document.getElementById("status").innerHTML="Status : Object Detected";
             console.log("Object Detected");
             speak();
             }
-            else{
+            else if(results != input){
                 document.getElementById("status").innerHTML="Status : Object Not Detected";
-                console.log("Object Not Detected");  
+                console.log("Object Not Detected");
+                speak2();  
             }
             document.getElementById("no_obj").innerHTML="Number Of Objects Detected = "+objects.length;
             r=Math.random()*255;
