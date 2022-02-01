@@ -41,10 +41,10 @@ function speak(){
     synth.speak(utterThis);
 }
 
-function speaks(){
-    synth = window.speechSynthesis ;
-   speak_data = "Object Not Detected " ;
-    utterThis = new SpeechSynthesisUtterance(speak_data) ;
+function speak2(){
+    synth_ = window.speechSynthesis ;
+   speak_data_2 = "Object Not Detected " ;
+    utterThis_2 = new SpeechSynthesisUtterance(speak_data_2) ;
     synth.speak(utterThis);
 }
 
